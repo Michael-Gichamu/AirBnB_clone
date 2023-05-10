@@ -4,7 +4,7 @@ Defines FileStorage class.
 """
 import json
 import os.path
-from models.base_model import base_model
+from models import base_model
 
 
 class FileStorage:
@@ -38,7 +38,7 @@ class FileStorage:
     def reload(self):
         """ deserializes the JSON file to __objects """
         if os.path.isfile(self.__file_path):
-            with open (self.__file_path, "r") as file:
+            with open(self.__file_path, "r") as file:
                 json_obj = json.load(file)
             for key, value in json_obj.items():
                 class_name = value['__class__']
