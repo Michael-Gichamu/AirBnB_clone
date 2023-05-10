@@ -4,7 +4,7 @@ Defines FileStorage class.
 """
 import json
 import os.path
-from models.base_model import base_model
+from models import base_model
 
 
 class FileStorage:
@@ -29,16 +29,16 @@ class FileStorage:
 
     def save(self):
         """ serializes __objects to the JSON file """
-        dict = {}
+        dict_ = {}
         for key in self.__objects:
-            dict[key] = self.__objects[key].to_dict()
+            dict_[key] = self.__objects[key].to_dict()
         with open(self.__file_path, "w") as file:
-            json.dump(dict, file)
+            json.dump(dict_, file)
 
     def reload(self):
         """ deserializes the JSON file to __objects """
         if os.path.isfile(self.__file_path):
-            with open (self.__file_path, "r") as file:
+            with open(self.__file_path, "r") as file:
                 json_obj = json.load(file)
             for key, value in json_obj.items():
                 class_name = value['__class__']
