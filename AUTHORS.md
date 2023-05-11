@@ -1,7 +1,4 @@
-# AirBnB_clone
-Airbnb  project @ALX - Higher level programming
-
-#### Done by 👇🏼👇🏼
+Authors:
 - Peter Evance
   - GitHub: [peter-evance](https://github.com/peter-evance)
 - Michael Gichamu
