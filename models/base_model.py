@@ -19,14 +19,17 @@ class BaseModel:
             args: list of arguemnts.
             kwargs: dict of key-value arguments.
         """
-        if kwargs == 0:
+        if len(kwargs) == 0:
             self.id = str(uuid.uuid4())
-            self.created_at = self.updated_at = datetime.now()
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
             models.storage.new(self)
         else:
             Tformat = "%Y-%m-%dT%H:%M:%S.%f"
-            kwargs["created_at"] = datetime.strptime(kwargs["created_at"], Tformat)
-            kwargs["updated_at"] = datetime.strptime(kwargs["updated_at"], Tformat)
+            if 'created_at' in kwargs:
+                kwargs["created_at"] = datetime.strptime(kwargs["created_at"], Tformat)
+            if 'updated_at' in kwargs:
+                kwargs["updated_at"] = datetime.strptime(kwargs["updated_at"], Tformat)
             for key, value in kwargs.items():
                 if "__class__" not in key:
                     setattr(self, key, value)
@@ -43,15 +46,14 @@ class BaseModel:
         of the instance.
 
         """
-        data = self.__dict__.copy()
-        data['__class__'] = self.__class__.__name__
-        data['created_at'] = self.created_at.isoformat()
-        data['updated_at'] = self.updated_at.isoformat()
-        return data
+        instance_dict = self.__dict__.copy()
+        instance_dict['__class__'] = self.__class__.__name__
+        instance_dict['created_at'] = self.created_at.isoformat()
+        instance_dict['updated_at'] = self.updated_at.isoformat()
+        return instance_dict
 
     def __str__(self):
         """
         Return the string representation of the Basemodel.
         """
-        return f "[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
-
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
