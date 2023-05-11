@@ -4,7 +4,7 @@ Defines FileStorage class.
 """
 import json
 import os.path
-from models import base_model
+from models.base_model import BaseModel
 
 
 class FileStorage:
