@@ -1,9 +1,7 @@
 # AirBnB_clone
 Airbnb  project @ALX - Higher level programming
 
-<p>
-<img src="https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230511%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20230511T123948Z&amp;X-Amz-Expires=86400&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=fa82d0cee8226578932bfa828c589772b22cad4ea64e2db61aefd0ce1f5dd967" alt="" loading="lazy" style="">
-</p>
+![AirBnB](assets/hbnb_logo.png)
 
 ## Description
 
