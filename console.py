@@ -3,6 +3,7 @@ import cmd
 from models import storage
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+CLASSES = {"BaseModel", "User", "State", "City", "Amenity", "Place", "Review"}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -28,7 +29,7 @@ class HBNBCommand(cmd.Cmd):
         args = argv.split()
         if args == "":
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in CLASSES:
             print("** class doesn't exist **")
         else:
             instance = BaseModel()
@@ -39,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
         args = argv.split()
         if args == "":
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in CLASSES:
             print("** class doesn't exist **")
         elif len(args) < 2:
             print("** instance id missing **")
@@ -56,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
         if args == "":
             print("** class name missing **")
             return
-        if args[0] != "BaseModel":
+        if args[0] not in CLASSES:
             print("** class deosn't exist **")
             return
 
@@ -72,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
         args = argv.split()
         if len(args) == 0:
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in CLASSES:
             print("** class doesn't exist **")
         elif len(args) < 2:
             print("** instance id missing **")
@@ -88,7 +89,7 @@ class HBNBCommand(cmd.Cmd):
         args = argv.split()
         if args == "":
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in CLASSES:
             print("** class doesn't exist **")
         elif len(args) < 2:
             print("** instance id missing **")
