@@ -1,8 +1,6 @@
 # AirBnB_clone
 Airbnb  project @ALX - Higher level programming
 
-![AirBnB](assets/hbnb_logo.png)
-
 ## Description
 
 AirBnB is a complete web application, integrating database storage, a back-end API, and a front-end interface.
