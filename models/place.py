@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from typing import List
 
 from models.base_model import BaseModel
