@@ -53,12 +53,12 @@ class BaseModel:
         instance_dict['updated_at'] = self.updated_at.isoformat()
         return instance_dict
 
-    # def __eq__(self, other):
-    #     """
-    #     Overrides the default equality comparison between BaseModel objects.
-    #     Two BaseModel objects are considered equal if their IDs are the same.
-    #     """
-    #     return isinstance(other, BaseModel) and self.id == other.id
+    def __eq__(self, other):
+        """
+        Overrides the default equality comparison between BaseModel objects.
+        Two BaseModel objects are considered equal if their IDs are the same.
+        """
+        return isinstance(other, BaseModel) and self.id == other.id
 
     def __str__(self):
         """
