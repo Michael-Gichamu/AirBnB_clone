@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+
 """
-This Modules implements a Console, an interface to the application
+This module provides a console interface for managing an AirBnB clone.
 """
 import cmd
 from models import storage
