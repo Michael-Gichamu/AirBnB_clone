@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Creates a Console, an interface to the application"""
 import cmd
 from models import storage
 from models.base_model import BaseModel
