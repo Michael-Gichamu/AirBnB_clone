@@ -3,7 +3,7 @@
 Defines BaseModel Class.
 """
 from datetime import datetime
-import uuid
+from uuid import uuid4
 import models
 
 
@@ -19,19 +19,20 @@ class BaseModel:
             args: list of arguemnts.
             kwargs: dict of key-value arguments.
         """
-        if kwargs:
-            Tformat = "%Y-%m-%dT%H:%M:%S.%f"
-            if "created_at" in kwargs:
-                kwargs["created_at"] = datetime.strptime(kwargs["created_at"], Tformat)
-            if "updated_at" in kwargs:
-                kwargs["updated_at"] = datetime.strptime(kwargs["updated_at"], Tformat)
+        if len(kwargs) == 0:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = self.created_at
+            models.storage.new(self)
+            models.storage.save()
+        else:
+            kwargs["created_at"] = datetime.strptime(kwargs["created_at"],
+                                                     "%Y-%m-%dT%H:%M:%S.%f")
+            kwargs["updated_at"] = datetime.strptime(kwargs["updated_at"],
+                                                     "%Y-%m-%dT%H:%M:%S.%f")
             for key, value in kwargs.items():
                 if "__class__" not in key:
                     setattr(self, key, value)
-        else:
-            self.id = str(uuid.uuid4())
-            self.created_at = self.updated_at = datetime.now()
-            models.storage.new(self)
 
     def save(self):
         """
@@ -47,8 +48,15 @@ class BaseModel:
         of the instance.
 
         """
-        instance_dict = self.__dict__.copy()
-        instance_dict['__class__'] = self.__class__.__name__
-        instance_dict['created_at'] = self.created_at.isoformat()
-        instance_dict['updated_at'] = self.updated_at.isoformat()
-        return instance_dict
+        dict_ = dict(self.__dict__)
+        dict_['__class__'] = self.__class__.__name__
+        dict_['updated_at'] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        dict_['created_at'] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        return dict_
+
+    def __str__(self):
+        """
+        String representation of instance.
+        """
+        class_name = self.__class__.__name__
+        return "[{:s}] ({:s}) {}".format(class_name, self.id, self.__dict__)
