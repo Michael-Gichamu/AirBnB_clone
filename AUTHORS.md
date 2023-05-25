@@ -1,7 +1,5 @@
-# This file list all contributors to this repository.
+# This file lists all individuals having contributed content to the repository.
+# For how it is generated, see `hack/generate-authors.sh`.
 
-Authors:
-- Peter Evance
-  - GitHub: [peter-evance](https://github.com/peter-evance)
-- Michael Gichamu
-  - GitHub: [Michael-Gichamu](https://github.com/Michael-Gichamu)
+Michael-Gichamu  <michaelmatere606@gmail.com>
+Peter Evance <peterevance1@gmail.com>
