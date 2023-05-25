@@ -10,4 +10,4 @@ class State(BaseModel):
     args:
         name (str): name of user.
     """
-    name: str = ""
+    name = ""

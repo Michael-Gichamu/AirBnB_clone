@@ -12,6 +12,6 @@ class Review(BaseModel):
         user_id (str): The ID of the User. Defaults to an empty string, which will be the User.id.
         text (str): Empty string.
     """
-    place_id: str = ""
-    user_id: str = ""
-    text: str = ""
+    place_id = ""
+    user_id = ""
+    text = ""
